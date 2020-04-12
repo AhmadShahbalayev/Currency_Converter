@@ -97,10 +97,25 @@ h1 {
     width: 259px;
 }
 
+#button {
+    display: flex;
+    justify-content: center;
+    width: 123px;
+    height: 50%;
+    margin-top: 62px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
 .arrow-itself {
-    margin: 0 43.6px;
+    margin: 0;
     width: 36.85px;
     height: 31.77px;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .right-div {
@@ -115,8 +130,8 @@ h1 {
 }
 
 .currency {
-    margin: 0 auto;
-    width: 50px;
+    margin: 0;
+    width: 40px;
     height: 26px;
     font-style: normal;
     font-weight: normal;
@@ -125,7 +140,7 @@ h1 {
     display: flex;
     align-items: center;
     color: #C6C6C6;
-    padding-left: 8px;
+    padding-left: 13px;
     border: 1px solid #E5E5E5;
 }
 
@@ -135,7 +150,7 @@ h1 {
     border-bottom-left-radius: 3px;
 }
 
-select {
+.select {
     width: 50px;
     height: 28px;
     font-size: 12px;
@@ -144,6 +159,14 @@ select {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     color: #C6C6C6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("./images/chevron-down.png");
+    background-repeat: no-repeat;
+    background-position-x: 33px;
+    background-position-y: center;
+    background-size: 10px;
+    padding-left: 5px;
 }
 
 .input {
@@ -183,4 +206,5 @@ select {
 
 .clicked {
     background: #833AE0;
+    color: white;
 }
