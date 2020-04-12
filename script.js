@@ -83,6 +83,8 @@ function toggle() {
     leftDiv.style.right = 0;
     rightDiv.style.left = 0;
     leftDiv.style.left = '';
+    document.getElementById('left-p').innerText = 'Хочу приобрести';
+    document.getElementById('right-p').innerText = 'У меня есть';
     arrowButton.removeEventListener('click', toggle);
     arrowButton.addEventListener('click', reverseToggle);
 }
@@ -91,6 +93,8 @@ function reverseToggle() {
     leftDiv.style.left = 0;
     rightDiv.style.right = 0;
     rightDiv.style.left = '';
+    document.getElementById('left-p').innerText = 'У меня есть';
+    document.getElementById('right-p').innerText = 'Хочу приобрести';
     arrowButton.removeEventListener('click', reverseToggle);
     arrowButton.addEventListener('click', toggle);
 }
