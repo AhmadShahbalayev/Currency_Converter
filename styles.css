@@ -93,7 +93,7 @@ h1 {
     color: #9F9F9F;
 }
 
-.left-div {
+#left-div {
     width: 259px;
 }
 
@@ -118,7 +118,7 @@ button:hover {
     cursor: pointer;
 }
 
-.right-div {
+#right-div {
     width: 259px;
 }
 
@@ -222,4 +222,8 @@ button:hover {
 .clicked {
     background: #833AE0;
     color: white;
+}
+
+.absolute {
+    position: absolute;
 }

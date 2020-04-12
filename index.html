@@ -25,27 +25,54 @@
     <main>
         <h1>Конвертер валют онлайн</h1>
         <div class="main-div">
-            <div class="left-div">
+            <div id="left-div">
                 <p class="gray">У меня есть</p>
                 <div class="currency-boxes">
-                    <p class="currency clicked i-have">RUB</p>
+                    <p class="currency clicked i-have" id="default-currency">RUB</p>
                     <p class="currency i-have">USD</p>
                     <p class="currency i-have">EUR</p>
                     <p class="currency i-have">GBP</p>
                     <select class="select i-have">
-                        <option value="BRY">BRY</option>
-                        <option value="AZN">AZN</option>
+                        <option value="HKD">HKD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="DKK">DKK</option>
+                        <option value="INR">INR</option>
+                        <option value="CHF">CHF</option>
+                        <option value="MXN">MXN</option>
+                        <option value="CZK">CZK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="HRK">HRK</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="CNY">CNY</option>
+                        <option value="BGN">BGN</option>
+                        <option value="PHP">PHP</option>
+                        <option value="SEK">SEK</option>
+                        <option value="PLN">PLN</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="CAD">CAD</option>
+                        <option value="ISK">ISK</option>
+                        <option value="BRL">BRL</option>
+                        <option value="RON">RON</option>
+                        <option value="NZD">NZD</option>
+                        <option value="TRY">TRY</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="HUF">HUF</option>
+                        <option value="AUD">AUD</option>
                     </select>
                 </div>
                 <div class="input">
                     <input type="text" class="input-field" id="left-input">
-                    <p class="input-p"></p>
+                    <p class="input-p" id="left-description"></p>
                 </div>
             </div>
             <button id="button">
                 <img src="./images/arrows.png" class="arrow-itself" alt="arrows">
             </button>
-            <div class="right-div">
+            <div id="right-div">
                 <p class="gray">Хочу приобрести</p>
                 <div class="currency-boxes">
                     <p class="currency i-want">RUB</p>
@@ -53,13 +80,40 @@
                     <p class="currency i-want">EUR</p>
                     <p class="currency i-want">GBP</p>
                     <select class="select i-want">
-                        <option value="BRY">BRY</option>
-                        <option value="AZN">AZN</option>
+                        <option value="HKD">HKD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="DKK">DKK</option>
+                        <option value="INR">INR</option>
+                        <option value="CHF">CHF</option>
+                        <option value="MXN">MXN</option>
+                        <option value="CZK">CZK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="HRK">HRK</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="CNY">CNY</option>
+                        <option value="BGN">BGN</option>
+                        <option value="PHP">PHP</option>
+                        <option value="SEK">SEK</option>
+                        <option value="PLN">PLN</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="CAD">CAD</option>
+                        <option value="ISK">ISK</option>
+                        <option value="BRL">BRL</option>
+                        <option value="RON">RON</option>
+                        <option value="NZD">NZD</option>
+                        <option value="TRY">TRY</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="HUF">HUF</option>
+                        <option value="AUD">AUD</option>
                     </select>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field" id="right-input"> 
-                    <p class="input-p"></p>
+                    <input type="text" class="input-field" id="right-input">
+                    <p class="input-p" id="right-description"></p>
                 </div>
             </div>
         </div>
