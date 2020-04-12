@@ -28,16 +28,17 @@
             <div class="left-div">
                 <p class="gray">У меня есть</p>
                 <div class="currency-boxes">
-                    <p class="currency clicked">RUB</p>
-                    <p class="currency">USD</p>
-                    <p class="currency">EUR</p>
-                    <p class="currency">GBP</p>
-                    <select name="_select" class="select">
+                    <p class="currency clicked i-have">RUB</p>
+                    <p class="currency i-have">USD</p>
+                    <p class="currency i-have">EUR</p>
+                    <p class="currency i-have">GBP</p>
+                    <select class="select i-have">
                         <option value="BRY">BRY</option>
+                        <option value="AZN">AZN</option>
                     </select>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field">
+                    <input type="text" class="input-field" id="left-input">
                     <p class="input-p"></p>
                 </div>
             </div>
@@ -47,16 +48,17 @@
             <div class="right-div">
                 <p class="gray">Хочу приобрести</p>
                 <div class="currency-boxes">
-                    <p class="currency">RUB</p>
-                    <p class="currency clicked">USD</p>
-                    <p class="currency">EUR</p>
-                    <p class="currency">GBP</p>
-                    <select name="_select" class="select">
+                    <p class="currency i-want">RUB</p>
+                    <p class="currency clicked i-want">USD</p>
+                    <p class="currency i-want">EUR</p>
+                    <p class="currency i-want">GBP</p>
+                    <select class="select i-want">
                         <option value="BRY">BRY</option>
+                        <option value="AZN">AZN</option>
                     </select>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field">
+                    <input type="text" class="input-field" id="right-input"> 
                     <p class="input-p"></p>
                 </div>
             </div>

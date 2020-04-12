@@ -144,6 +144,12 @@ button:hover {
     border: 1px solid #E5E5E5;
 }
 
+.currency:hover {
+    cursor: pointer;
+    background: #833AE0;
+    color: white;
+}
+
 .currency:first-child {
     border: 1px solid #E5E5E5;
     border-top-left-radius: 3px;
@@ -153,6 +159,8 @@ button:hover {
 .select {
     width: 50px;
     height: 28px;
+    font-style: normal;
+    font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     border: 1px solid #E5E5E5;
@@ -168,6 +176,12 @@ button:hover {
     background-size: 10px;
     padding-left: 5px;
     outline: none;
+}
+
+.select:hover {
+    cursor: pointer;
+    background: #833AE0;
+    color: white;
 }
 
 .input {
