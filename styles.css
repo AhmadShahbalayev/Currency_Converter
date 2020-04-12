@@ -87,6 +87,7 @@ h1 {
     margin: auto;
     width: 641px;
     height: 180px;
+    position: relative;
 }
 
 .gray {
