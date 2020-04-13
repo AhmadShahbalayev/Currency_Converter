@@ -17,6 +17,7 @@ body {
     opacity: 50%;
     z-index: 999;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -30,6 +31,47 @@ body {
     background-color: whitesmoke;
     border-radius: 5px;
 }
+
+.bar {
+    margin-top: 1%;
+    width: 10%;
+    height: 2%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+.mini {
+    display: inline-block;
+    margin-top: 1%;
+    width: 15%;
+    height: 70%;
+    background: red;
+    border-radius: 5px;
+    animation-name: loading;
+    animation-duration: 0.11s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+.mini:first-child {
+    animation-duration: 0.1s;
+    background: blue;
+}
+
+.mini:last-child {
+    animation-duration: 0.12s;
+    background: green;
+}
+
+@keyframes loading {
+    0%   {left: 0px;}
+    100% {left: 85%;}
+  }
 
 .hidden {
     display: none;
