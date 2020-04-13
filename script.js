@@ -109,6 +109,16 @@ function getResponse() {
         .finally(() => document.querySelector('.ghost').classList.add('hidden'));
 }
 
+// This function automatically updates variables when user came back:
+
+// window.addEventListener('mousemove', update);
+
+// function update() {
+//     setTimeout(() => {
+//         getResponse();
+//     }, 60000)
+// }
+
 // This functions toggles divs:
 
 function toggle() {
