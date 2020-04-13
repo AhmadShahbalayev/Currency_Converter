@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="ghost hidden">
+        <div class="loading">LOADING</div>
+    </div>
     <header>
         <img src="./images/logo.png" alt="bank-logo">
         <p class="headers"><a href="#" id="bank">БАНК</a></p>
@@ -28,7 +31,7 @@
             <div id="left-div">
                 <p class="gray" id="left-p">У меня есть</p>
                 <div class="currency-boxes">
-                    <p class="currency clicked i-have" id="default-currency">RUB</p>
+                    <p class="currency clicked i-have">RUB</p>
                     <p class="currency i-have">USD</p>
                     <p class="currency i-have">EUR</p>
                     <p class="currency i-have">GBP</p>
@@ -65,7 +68,7 @@
                     </select>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field" id="left-input">
+                    <input type="text" class="input-field" id="left-input" value="1">
                     <p class="input-p" id="left-description"></p>
                 </div>
             </div>

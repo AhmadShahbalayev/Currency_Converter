@@ -1,10 +1,8 @@
-// When script loads, it simulates like user have clicked RUB:
+// This runs our script on
 
-window.onload = function () {
-    document.getElementById("default-currency").click();
-};
+window.addEventListener('load', runApp);
 
-// Variables and event listeners for click event are stored here: 
+// All variables and event listeners are stored here: 
 
 let leftInput = document.getElementById('left-input');
 let rightInput = document.getElementById('right-input');
@@ -15,11 +13,51 @@ let iWants = document.querySelectorAll('.i-want');
 let leftDescription = document.getElementById('left-description');
 let rightDescription = document.getElementById('right-description');
 
-let clickedIhave = 'RUB';
-let clickedIwant = 'USD';
+let clickedIhave;
+let clickedIwant;
 
 iHaves.forEach(item => item.addEventListener('click', clicked));
 iWants.forEach(item => item.addEventListener('click', clicked));
+
+let leftResponse;
+let rightResponse;
+
+let leftDiv = document.getElementById('left-div');
+let rightDiv = document.getElementById('right-div');
+
+let left = leftDiv.getBoundingClientRect().left;
+let right = rightDiv.getBoundingClientRect().left;
+
+let arrowButton = document.getElementById('button');
+arrowButton.addEventListener('click', toggle);
+
+// When script loads, it gets response:
+
+function runApp() {
+    clickedIhave = 'RUB';
+    clickedIwant = 'USD';
+    getResponse();
+    leftInput.addEventListener('input', calculateRight);
+    rightInput.addEventListener('input', calculateLeft);
+}
+
+function calculateRight() {
+    let cleanLeftInput = cleaner(leftInput.value);
+    setTimeout(() => {
+        leftInput.value = cleanLeftInput;
+    }, 0);
+    rightInput.value = cleanLeftInput * +leftResponse.rates[clickedIwant].toFixed(4);
+    leftDescription.innerText = `1 ${clickedIhave} = ${+leftResponse.rates[clickedIwant].toFixed(4)} ${clickedIwant}`
+    rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +leftResponse.rates[clickedIwant]).toFixed(4)} ${clickedIhave}`
+}
+
+function calculateLeft() {
+    let cleanRightInput = cleaner(rightInput.value);
+    setTimeout(() => {
+        rightInput.value = cleanRightInput;
+    }, 0);
+    leftInput.value = cleanRightInput * +rightResponse.rates[clickedIhave].toFixed(4);
+}
 
 // This function provides us with the neccessary information from server:
 
@@ -41,49 +79,35 @@ function clicked(e) {
         }
     }
     e.target.classList.add('clicked');
-    calculateRight();
-    calculateLeft();
-
-    leftInput.addEventListener('input', calculateRight);
-    function calculateRight() {
-        fetch(`https://api.ratesapi.io/api/latest?base=${clickedIhave}&symbols=${clickedIwant}`)
-            .then(res => res.json()
-                .then((res) => {
-                    rightInput.value = leftInput.value * +res.rates[clickedIwant].toFixed(4);
-                    leftDescription.innerText = `1 ${clickedIhave} = ${+res.rates[clickedIwant].toFixed(4)} ${clickedIwant}`
-                    rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +res.rates[clickedIwant]).toFixed(4)} ${clickedIhave}`
-                },
-                    err => {
-                        console.log(err);
-                    }
-                ));
-    }
-    function calculateLeft() {
-        fetch(`https://api.ratesapi.io/api/latest?base=${clickedIwant}&symbols=${clickedIhave}`)
-            .then(res => res.json()
-                .then((res) => {
-                    leftInput.value = rightInput.value * +res.rates[clickedIhave].toFixed(4);
-                    leftDescription.innerText = `1 ${clickedIhave} = ${+res.rates[clickedIhave].toFixed(4)} ${clickedIwant}`
-                    rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +res.rates[clickedIhave]).toFixed(4)} ${clickedIhave}`
-                },
-                    err => {
-                        console.log(err);
-                    }
-                ));
-    }
-    rightInput.addEventListener('input', calculateLeft);
+    getResponse();
 }
 
-// Variables and event listeners to toggle divs are stored here:
+// This function provide us with responses: 
 
-let leftDiv = document.getElementById('left-div');
-let rightDiv = document.getElementById('right-div');
-
-let left = leftDiv.getBoundingClientRect().left;
-let right = rightDiv.getBoundingClientRect().left;
-
-let arrowButton = document.getElementById('button');
-arrowButton.addEventListener('click', toggle);
+function getResponse() {
+    document.querySelector('.ghost').classList.remove('hidden');
+    let responseL = fetch(`https://api.ratesapi.io/api/latest?base=${clickedIhave}&symbols=${clickedIwant}`);
+    let responseR = fetch(`https://api.ratesapi.io/api/latest?base=${clickedIwant}&symbols=${clickedIhave}`);
+    Promise.all([
+        responseL,
+        responseR
+    ]).then(
+        responses => Promise.all([
+            responses[0].json(),
+            responses[1].json()
+        ]).then(
+            (res) => {
+                leftResponse = res[0];
+                rightResponse = res[1];
+                console.log('LEFT', leftResponse);
+                console.log('RIGHT', rightResponse)
+                calculateRight();
+            }
+        )
+    )
+        .catch(() => alert('Right now our server is not responding.\n\nPlease try again later'))
+        .finally(() => document.querySelector('.ghost').classList.add('hidden'));
+}
 
 // This functions toggles divs:
 
@@ -109,28 +133,20 @@ function reverseToggle() {
     arrowButton.addEventListener('click', toggle);
 }
 
-// This function clears input from strings and commas:
+// This function for changing commas to dots:
 
-let leftVal = +leftInput.value;
-let rightVal = +rightInput.value;
-
-let cleanLeftInput = '';
-let cleanRightInput = '';
-
-function cleaner(input, cleanInput) {
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] === ',') {
-            input[i] = '.';
-            cleanInput += input[i];
-        } 
-        if (isNaN(input[i])) {
-            input[i] = '.';
-            cleanInput += input[i];
-        } else {
-            cleanInput += input[i];
+function cleaner(input) {
+    let dirty = input;
+    let clean = '';
+    let isFirstDot = true;
+    for (let i = 0; i < dirty.length; i++) {
+        if (isFirstDot && (dirty[i] === '.' || dirty[i] === ',')) {
+            clean += dirty[i];
+            isFirstDot = false;
+        }
+        if (!isNaN(dirty[i])) {
+            clean += dirty[i];
         }
     }
-    return cleanInput;
+    return clean.replace(',', '.');
 }
-
-console.log(cleaner(leftVal, cleanLeftInput));
