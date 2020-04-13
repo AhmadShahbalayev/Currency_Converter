@@ -1,6 +1,10 @@
+// When script loads, it simulates like user have clicked RUB:
+
 window.onload = function () {
     document.getElementById("default-currency").click();
 };
+
+// Variables and event listeners for click event are stored here: 
 
 let leftInput = document.getElementById('left-input');
 let rightInput = document.getElementById('right-input');
@@ -16,6 +20,8 @@ let clickedIwant = 'USD';
 
 iHaves.forEach(item => item.addEventListener('click', clicked));
 iWants.forEach(item => item.addEventListener('click', clicked));
+
+// This function provides us with the neccessary information from server:
 
 function clicked(e) {
     if (e.target.classList.contains('i-have')) {
@@ -52,21 +58,23 @@ function clicked(e) {
                     }
                 ));
     }
-    rightInput.addEventListener('input', calculateLeft);
     function calculateLeft() {
         fetch(`https://api.ratesapi.io/api/latest?base=${clickedIwant}&symbols=${clickedIhave}`)
             .then(res => res.json()
                 .then((res) => {
                     leftInput.value = rightInput.value * +res.rates[clickedIhave].toFixed(4);
-                    leftDescription.innerText = `1 ${clickedIwant} = ${+res.rates[clickedIhave].toFixed(4)} ${clickedIhave}`
-                    rightDescription.innerText = `1 ${clickedIhave} = ${(1 / +res.rates[clickedIhave]).toFixed(4)} ${clickedIwant}`
+                    leftDescription.innerText = `1 ${clickedIhave} = ${+res.rates[clickedIhave].toFixed(4)} ${clickedIwant}`
+                    rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +res.rates[clickedIhave]).toFixed(4)} ${clickedIhave}`
                 },
                     err => {
                         console.log(err);
                     }
                 ));
     }
+    rightInput.addEventListener('input', calculateLeft);
 }
+
+// Variables and event listeners to toggle divs are stored here:
 
 let leftDiv = document.getElementById('left-div');
 let rightDiv = document.getElementById('right-div');
@@ -76,6 +84,8 @@ let right = rightDiv.getBoundingClientRect().left;
 
 let arrowButton = document.getElementById('button');
 arrowButton.addEventListener('click', toggle);
+
+// This functions toggles divs:
 
 function toggle() {
     leftDiv.classList.add('absolute');
@@ -98,3 +108,29 @@ function reverseToggle() {
     arrowButton.removeEventListener('click', reverseToggle);
     arrowButton.addEventListener('click', toggle);
 }
+
+// This function clears input from strings and commas:
+
+let leftVal = +leftInput.value;
+let rightVal = +rightInput.value;
+
+let cleanLeftInput = '';
+let cleanRightInput = '';
+
+function cleaner(input, cleanInput) {
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] === ',') {
+            input[i] = '.';
+            cleanInput += input[i];
+        } 
+        if (isNaN(input[i])) {
+            input[i] = '.';
+            cleanInput += input[i];
+        } else {
+            cleanInput += input[i];
+        }
+    }
+    return cleanInput;
+}
+
+console.log(cleaner(leftVal, cleanLeftInput));
