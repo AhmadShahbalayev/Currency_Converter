@@ -48,9 +48,13 @@ function calculateRight() {
     setTimeout(() => {
         leftInput.value = cleanLeftInput;
     }, 0);
-    rightInput.value = cleanLeftInput * +leftResponse.rates[clickedIwant].toFixed(4);
-    leftDescription.innerText = `1 ${clickedIhave} = ${+leftResponse.rates[clickedIwant].toFixed(4)} ${clickedIwant}`
-    rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +leftResponse.rates[clickedIwant]).toFixed(4)} ${clickedIhave}`
+    if (leftInput.value === '.') {
+        rightInput.value = 0;
+    } else {
+        rightInput.value = cleanLeftInput * +leftResponse.rates[clickedIwant].toFixed(4);
+        leftDescription.innerText = `1 ${clickedIhave} = ${+leftResponse.rates[clickedIwant].toFixed(4)} ${clickedIwant}`
+        rightDescription.innerText = `1 ${clickedIwant} = ${(1 / +leftResponse.rates[clickedIwant]).toFixed(4)} ${clickedIhave}`
+    }
 }
 
 function calculateLeft() {
@@ -58,7 +62,11 @@ function calculateLeft() {
     setTimeout(() => {
         rightInput.value = cleanRightInput;
     }, 0);
+    if (rightInput.value === '.') {
+        leftInput.value = 0;
+    } else {
     leftInput.value = cleanRightInput * +rightResponse.rates[clickedIhave].toFixed(4);
+    }
 }
 
 // This function provides us with the neccessary information from server on click:
