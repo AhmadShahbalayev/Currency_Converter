@@ -115,8 +115,12 @@ function getResponse() {
             }
         )
     )
-        .catch(() => alert('Right now our server is not responding.\n\nPlease try again later'))
-        .finally(() => document.querySelector('.ghost').classList.add('hidden'));
+        .catch(() => setTimeout(() => {
+            alert('Right now our server is not responding.\n\nPlease try again later')
+        }, 550))
+        .finally(() => setTimeout(() => {
+            document.querySelector('.ghost').classList.add('hidden')
+        }, 500));
 }
 
 // This function automatically updates variables when user came back:
