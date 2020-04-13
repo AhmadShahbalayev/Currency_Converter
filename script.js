@@ -1,4 +1,4 @@
-// This runs our script on
+// This runs our script on load:
 
 window.addEventListener('load', runApp);
 
@@ -13,11 +13,11 @@ let iWants = document.querySelectorAll('.i-want');
 let leftDescription = document.getElementById('left-description');
 let rightDescription = document.getElementById('right-description');
 
-let clickedIhave;
-let clickedIwant;
-
 iHaves.forEach(item => item.addEventListener('click', clicked));
 iWants.forEach(item => item.addEventListener('click', clicked));
+
+let clickedIhave;
+let clickedIwant;
 
 let leftResponse;
 let rightResponse;
@@ -31,7 +31,7 @@ let right = rightDiv.getBoundingClientRect().left;
 let arrowButton = document.getElementById('button');
 arrowButton.addEventListener('click', toggle);
 
-// When script loads, it gets response:
+// When script loads, it gets responses:
 
 function runApp() {
     clickedIhave = 'RUB';
@@ -40,6 +40,8 @@ function runApp() {
     leftInput.addEventListener('input', calculateRight);
     rightInput.addEventListener('input', calculateLeft);
 }
+
+// These two funcitons calculates new amount according to current rates:
 
 function calculateRight() {
     let cleanLeftInput = cleaner(leftInput.value);
@@ -59,7 +61,7 @@ function calculateLeft() {
     leftInput.value = cleanRightInput * +rightResponse.rates[clickedIhave].toFixed(4);
 }
 
-// This function provides us with the neccessary information from server:
+// This function provides us with the neccessary information from server on click:
 
 function clicked(e) {
     if (e.target.classList.contains('i-have')) {
@@ -119,7 +121,7 @@ function getResponse() {
 //     }, 60000)
 // }
 
-// This functions toggles divs:
+// These two functions toggle replacement of input boxes:
 
 function toggle() {
     leftDiv.classList.add('absolute');
@@ -143,7 +145,7 @@ function reverseToggle() {
     arrowButton.addEventListener('click', toggle);
 }
 
-// This function for changing commas to dots:
+// This function cleans user's input. Changes commas to dots and does not accept strings:
 
 function cleaner(input) {
     let dirty = input;
