@@ -109,18 +109,14 @@ function getResponse() {
             (res) => {
                 leftResponse = res[0];
                 rightResponse = res[1];
-                console.log('LEFT', leftResponse);
-                console.log('RIGHT', rightResponse)
                 calculateRight();
             }
         )
     )
         .catch(() => setTimeout(() => {
-            alert('Right now our server is not responding.\n\nPlease try again later')
-        }, 550))
-        .finally(() => setTimeout(() => {
-            document.querySelector('.ghost').classList.add('hidden')
-        }, 500));
+            alert('Right now our server is not responding.\nPlease try again later')
+        }, 100))
+        .finally(() => document.querySelector('.ghost').classList.add('hidden'));
 }
 
 // This function automatically updates variables when user came back:
