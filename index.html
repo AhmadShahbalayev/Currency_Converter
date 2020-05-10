@@ -2,130 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
-    <title>Bank Algoritmics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <title>Bank Algoritmics</title>
 </head>
 
 <body>
-    <div class="ghost hidden">
-        <div class="loading">LOADING</div>
-        <div class="bar">
-            <span class="mini"></span>
-            <span class="mini"></span>
-            <span class="mini"></span>
-        </div>
+  <div class="ghost hidden">
+    <div class="loading">LOADING</div>
+    <div class="bar">
+      <span class="mini"></span>
+      <span class="mini"></span>
+      <span class="mini"></span>
     </div>
-    <header>
-        <img src="./images/logo.png" alt="bank-logo">
-        <p class="headers"><a href="#" id="bank">БАНК</a></p>
-        <p class="headers"><a href="#">БИЗНЕС</a></p>
-        <p class="headers"><a href="#">ИНВЕСТИЦИИ</a></p>
-        <p class="headers"><a href="#">СТРАХОВАНИЕ</a></p>
-        <p class="headers"><a href="#">МОБАЙЛ</a></p>
-        <p class="headers"><a href="#">ПУТЕШЕСТВИЯ</a></p>
-        <p class="headers"><a href="#">РАЗВЛЕЧЕНИЯ</a></p>
-        <div class="sign-in"><a href="#">ВОЙТИ</a></div>
-    </header>
-    <main>
-        <h1>Конвертер валют онлайн</h1>
-        <div class="main-div">
-            <div id="left-div">
-                <p class="gray" id="left-p">У меня есть</p>
-                <div class="currency-boxes">
-                    <p class="currency clicked i-have">RUB</p>
-                    <p class="currency i-have">USD</p>
-                    <p class="currency i-have">EUR</p>
-                    <p class="currency i-have">GBP</p>
-                    <select class="select i-have">
-                        <option value="HKD">HKD</option>
-                        <option value="IDR">IDR</option>
-                        <option value="ILS">ILS</option>
-                        <option value="DKK">DKK</option>
-                        <option value="INR">INR</option>
-                        <option value="CHF">CHF</option>
-                        <option value="MXN">MXN</option>
-                        <option value="CZK">CZK</option>
-                        <option value="SGD">SGD</option>
-                        <option value="THB">THB</option>
-                        <option value="HRK">HRK</option>
-                        <option value="MYR">MYR</option>
-                        <option value="NOK">NOK</option>
-                        <option value="CNY">CNY</option>
-                        <option value="BGN">BGN</option>
-                        <option value="PHP">PHP</option>
-                        <option value="SEK">SEK</option>
-                        <option value="PLN">PLN</option>
-                        <option value="ZAR">ZAR</option>
-                        <option value="CAD">CAD</option>
-                        <option value="ISK">ISK</option>
-                        <option value="BRL">BRL</option>
-                        <option value="RON">RON</option>
-                        <option value="NZD">NZD</option>
-                        <option value="TRY">TRY</option>
-                        <option value="JPY">JPY</option>
-                        <option value="KRW">KRW</option>
-                        <option value="HUF">HUF</option>
-                        <option value="AUD">AUD</option>
-                    </select>
-                </div>
-                <div class="input">
-                    <input type="text" class="input-field" id="left-input" value="1">
-                    <p class="input-p" id="left-description"></p>
-                </div>
-            </div>
-            <button id="button">
-                <img src="./images/arrows.png" class="arrow-itself" alt="arrows">
-            </button>
-            <div id="right-div">
-                <p class="gray" id="right-p">Хочу приобрести</p>
-                <div class="currency-boxes">
-                    <p class="currency i-want">RUB</p>
-                    <p class="currency clicked i-want">USD</p>
-                    <p class="currency i-want">EUR</p>
-                    <p class="currency i-want">GBP</p>
-                    <select class="select i-want">
-                        <option value="HKD">HKD</option>
-                        <option value="IDR">IDR</option>
-                        <option value="ILS">ILS</option>
-                        <option value="DKK">DKK</option>
-                        <option value="INR">INR</option>
-                        <option value="CHF">CHF</option>
-                        <option value="MXN">MXN</option>
-                        <option value="CZK">CZK</option>
-                        <option value="SGD">SGD</option>
-                        <option value="THB">THB</option>
-                        <option value="HRK">HRK</option>
-                        <option value="MYR">MYR</option>
-                        <option value="NOK">NOK</option>
-                        <option value="CNY">CNY</option>
-                        <option value="BGN">BGN</option>
-                        <option value="PHP">PHP</option>
-                        <option value="SEK">SEK</option>
-                        <option value="PLN">PLN</option>
-                        <option value="ZAR">ZAR</option>
-                        <option value="CAD">CAD</option>
-                        <option value="ISK">ISK</option>
-                        <option value="BRL">BRL</option>
-                        <option value="RON">RON</option>
-                        <option value="NZD">NZD</option>
-                        <option value="TRY">TRY</option>
-                        <option value="JPY">JPY</option>
-                        <option value="KRW">KRW</option>
-                        <option value="HUF">HUF</option>
-                        <option value="AUD">AUD</option>
-                    </select>
-                </div> 
-                <div class="input">
-                    <input type="text" class="input-field" id="right-input">
-                    <p class="input-p" id="right-description"></p>
-                </div>
-            </div>
+  </div>
+  <header>
+    <img src="./images/logo.png" alt="bank-logo">
+    <p class="headers"><a href="#" id="bank">БАНК</a></p>
+    <p class="headers"><a href="#">БИЗНЕС</a></p>
+    <p class="headers"><a href="#">ИНВЕСТИЦИИ</a></p>
+    <p class="headers"><a href="#">СТРАХОВАНИЕ</a></p>
+    <p class="headers"><a href="#">МОБАЙЛ</a></p>
+    <p class="headers"><a href="#">ПУТЕШЕСТВИЯ</a></p>
+    <p class="headers"><a href="#">РАЗВЛЕЧЕНИЯ</a></p>
+    <div class="sign-in"><a href="#">ВОЙТИ</a></div>
+  </header>
+  <main>
+    <h1>Конвертер валют онлайн</h1>
+    <div class="main-div">
+      <div id="left-div">
+        <p class="gray" id="left-p">У меня есть</p>
+        <div class="currency-boxes">
+          <p class="currency clicked i-have">RUB</p>
+          <p class="currency i-have">USD</p>
+          <p class="currency i-have">EUR</p>
+          <p class="currency i-have">GBP</p>
+          <select class="select i-have">
+            <option value="HKD">HKD</option>
+            <option value="IDR">IDR</option>
+            <option value="ILS">ILS</option>
+            <option value="DKK">DKK</option>
+            <option value="INR">INR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MXN</option>
+            <option value="CZK">CZK</option>
+            <option value="SGD">SGD</option>
+            <option value="THB">THB</option>
+            <option value="HRK">HRK</option>
+            <option value="MYR">MYR</option>
+            <option value="NOK">NOK</option>
+            <option value="CNY">CNY</option>
+            <option value="BGN">BGN</option>
+            <option value="PHP">PHP</option>
+            <option value="SEK">SEK</option>
+            <option value="PLN">PLN</option>
+            <option value="ZAR">ZAR</option>
+            <option value="CAD">CAD</option>
+            <option value="ISK">ISK</option>
+            <option value="BRL">BRL</option>
+            <option value="RON">RON</option>
+            <option value="NZD">NZD</option>
+            <option value="TRY">TRY</option>
+            <option value="JPY">JPY</option>
+            <option value="KRW">KRW</option>
+            <option value="HUF">HUF</option>
+            <option value="AUD">AUD</option>
+          </select>
         </div>
-    </main>
+        <div class="input">
+          <input type="text" class="input-field" id="left-input" value="1">
+          <p class="input-p" id="left-description"></p>
+        </div>
+      </div>
+      <button id="button">
+        <img src="./images/arrows.png" class="arrow-itself" alt="arrows">
+      </button>
+      <div id="right-div">
+        <p class="gray" id="right-p">Хочу приобрести</p>
+        <div class="currency-boxes">
+          <p class="currency i-want">RUB</p>
+          <p class="currency clicked i-want">USD</p>
+          <p class="currency i-want">EUR</p>
+          <p class="currency i-want">GBP</p>
+          <select class="select i-want">
+            <option value="HKD">HKD</option>
+            <option value="IDR">IDR</option>
+            <option value="ILS">ILS</option>
+            <option value="DKK">DKK</option>
+            <option value="INR">INR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MXN</option>
+            <option value="CZK">CZK</option>
+            <option value="SGD">SGD</option>
+            <option value="THB">THB</option>
+            <option value="HRK">HRK</option>
+            <option value="MYR">MYR</option>
+            <option value="NOK">NOK</option>
+            <option value="CNY">CNY</option>
+            <option value="BGN">BGN</option>
+            <option value="PHP">PHP</option>
+            <option value="SEK">SEK</option>
+            <option value="PLN">PLN</option>
+            <option value="ZAR">ZAR</option>
+            <option value="CAD">CAD</option>
+            <option value="ISK">ISK</option>
+            <option value="BRL">BRL</option>
+            <option value="RON">RON</option>
+            <option value="NZD">NZD</option>
+            <option value="TRY">TRY</option>
+            <option value="JPY">JPY</option>
+            <option value="KRW">KRW</option>
+            <option value="HUF">HUF</option>
+            <option value="AUD">AUD</option>
+          </select>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" id="right-input">
+          <p class="input-p" id="right-description"></p>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
